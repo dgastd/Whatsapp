@@ -5,19 +5,29 @@ const messages = {
   ro: "Bună ziua! Îmi puteți oferi detalii despre post?"  // Сообщение на румынском
 };
 
-// Текущий выбранный язык (по умолчанию английский)
-let currentLanguage = 'en';
+// Текущий выбранный язык (по умолчанию румынский)
+let currentLanguage = 'ro';
 
 // Функция для редиректа в WhatsApp
 function redirectToWhatsApp() {
   const phoneNumber = "37376982589"; // Укажите номер телефона
   const message = messages[currentLanguage]; // Выбираем сообщение в зависимости от языка
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  // Отправляем событие в Facebook Pixel, чтобы засчитать лид
+  fbq('track', 'Lead', {
+    content_name: 'WhatsApp Contact',
+    content_category: 'Application'
+  });
   
-  // Задержка перед переходом, чтобы URL успел правильно сформироваться
+  // Показываем сообщение после нажатия на кнопку
+  document.getElementById("thank-you-message").style.display = "block";
+  document.getElementById("whatsapp-button").style.display = "none"; // Прячем кнопку после нажатия
+
+  // Задержка перед переходом, чтобы пользователь увидел сообщение
   setTimeout(() => {
     window.location.href = url;
-  }, 100); // Задержка 100 миллисекунд
+  }, 3000); // Задержка 3 секунды
 }
 
 // Обновляем текст кнопки
