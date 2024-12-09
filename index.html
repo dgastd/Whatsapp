@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Go to WhatsApp</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Meta Pixel Code -->
+<!-- Facebook Pixel Code (вставьте в head) -->
 <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,23 +15,22 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1119997516463486');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1119997516463486&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    fbq('init', '955373333160105');  // Ваш Pixel ID
+    fbq('track', 'PageView');  // Отслеживание просмотра страницы
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1119997516463486&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->   
 </head>
 <body>
-    <!-- Основной контейнер -->
     <div class="container" id="content-container">
-        <img src="whatsapp.png" alt="WhatsApp" class="header-image">
-        <div class="content">
-            <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Scrie în WhatsApp</button>
+        <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Scrie în WhatsApp</button>
+        <div id="thank-you-message" style="display: none; margin-top: 20px; font-size: 16px; color: green;">
+            *A-ți aplicat cu succes, vă mulțumim pentru atenție!<br>
+            În curând ve-ți primi un răspuns de la manager.*
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
